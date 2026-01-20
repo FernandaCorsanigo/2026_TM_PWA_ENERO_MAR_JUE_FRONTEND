@@ -17,7 +17,7 @@ Fetch recibe 2 parametros:
 - objeto de configuracion 
 */
 
-const URL_API = 'http://localhost:8080'
+const URL_API = import.meta.env.VITE_URL_API // esta es la manera de llamar a la variable de entorno (por buenas practicas luego se debe ignorar el .env en el .gitignore)/*'http://localhost:8080'*/
 
 export async function login(email, password) {
     const response_http = await fetch(
