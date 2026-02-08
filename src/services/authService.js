@@ -85,14 +85,14 @@ Response body example:(esto es copia de cuando en postman por ejemplo se crea un
     "ok": true,
     "data": null
 }
-
 */
-/*async function validateAuth_token(){
+
+async function validateAuth_token(){
     /*IDEA CLAVE:
 Login → manda email + password (POST, body)
 Validate token → manda solo token (GET, headers) 
 */
-/*
+
     const response_http = await fetch(
             URL_API + '/api/auth/validate-token',
             {
@@ -106,4 +106,5 @@ Validate token → manda solo token (GET, headers)
     if (!response.ok) {
         throw new ServerError(response.message, response.status)
     }
-    return response*/
+    return response
+}
