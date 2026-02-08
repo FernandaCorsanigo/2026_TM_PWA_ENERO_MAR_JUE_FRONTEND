@@ -1,6 +1,7 @@
 import { createContext, useEffect } from "react"
 import useRequest from "../hooks/useRequest"
-import { getWorkspaceList } from "../services/workspaceService.js"
+import { getWorkspaceList } from "../services/workspaceService"
+
 
 export const WorkspaceContext = createContext(
     {
