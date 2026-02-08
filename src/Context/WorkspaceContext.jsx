@@ -19,7 +19,8 @@ const WorkspaceContextProvider = ({ children }) => {
                 getWorkspaceList
             )
         },
-        [])
+        []
+    )
 
     const provider_values = {
         workspace_list_loading: loading,
