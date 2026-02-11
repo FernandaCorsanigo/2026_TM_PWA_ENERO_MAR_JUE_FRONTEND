@@ -6,6 +6,8 @@ import AuthContextProvider from './Context/AuthContext'
 import AuthMiddleware from './Middlewares/AuthMiddleware'
 import WorkspaceContextProvider from './Context/WorkspaceContext'
 import HomeScreen from './Screens/HomeScreen/HomeScreen'
+import CreateWorkspaceScreen from './Screens/CreateWorkspaceScreen/CreateWorkspaceScreen'
+import ChannelScreen from './Screens/ChannelScreen/ChannelScreen'
 function App() {
 
   return (
@@ -19,7 +21,9 @@ function App() {
             <WorkspaceContextProvider>
               <HomeScreen />
             </WorkspaceContextProvider>
-            } />
+          } />
+          <Route path='/create-workspace' element={<CreateWorkspaceScreen />} />
+          <Route path='//workspace/:workspace_id/channels' element={<ChannelScreen />} />
         </Route>
       </Routes>
     </AuthContextProvider>

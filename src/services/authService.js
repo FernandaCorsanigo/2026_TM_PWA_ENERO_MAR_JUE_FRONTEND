@@ -25,9 +25,10 @@ export async function login(email, password) {
         {
             method: 'POST',
             headers: {
+                'x-api-key': import.meta.env.VITE_API_KEY,
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify( 
+            body: JSON.stringify(
                 {
                     password: password,
                     email: email
@@ -54,10 +55,11 @@ export async function register(username, password, email) { // funcion asincroni
         {
             method: 'POST',
             headers: {
+                'x-api-key': import.meta.env.VITE_API_KEY,
                 'Content-Type': 'application/json' //Configuramos que vamos a enviar json en la peticion, para que el middleware sepa detectar que es un json y sepa hacer las transformaciones correspondientes
             },
             body: JSON.stringify( // El objeto que vamos a eviar y tiene que tener el mismo formato que postman.
-            // Transforma un object a json en formato STRING 
+                // Transforma un object a json en formato STRING 
                 {
                     username: username,
                     password: password,
@@ -87,20 +89,21 @@ Response body example:(esto es copia de cuando en postman por ejemplo se crea un
 }
 */
 
-async function validateAuth_token(){
+async function validateAuth_token() {
     /*IDEA CLAVE:
 Login → manda email + password (POST, body)
 Validate token → manda solo token (GET, headers) 
 */
 
     const response_http = await fetch(
-            URL_API + '/api/auth/validate-token',
-            {
-                method: 'GET',
-                headers: {
-                    'Authorization': 'Bearer $(auth_token)'
-                }
+        URL_API + '/api/auth/validate-token',
+        {
+            method: 'GET',
+            headers: {
+                'x-api-key': import.meta.env.VITE_API_KEY,
+                'Authorization': 'Bearer $(auth_token)'
             }
+        }
     )
     const response = await response_http.json() // Funcion asincronica por eso el await
     if (!response.ok) {
