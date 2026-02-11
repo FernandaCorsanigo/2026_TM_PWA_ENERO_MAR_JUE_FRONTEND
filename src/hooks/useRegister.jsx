@@ -1,3 +1,4 @@
+import { register } from "../services/authService"
 import useForm from "./useForm"
 import useRequest from "./useRequest"
 
