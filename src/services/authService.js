@@ -20,6 +20,7 @@ Fetch recibe 2 parametros:
 const URL_API = import.meta.env.VITE_API_URL // esta es la manera de llamar a la variable de entorno (por buenas practicas luego se debe ignorar el .env en el .gitignore)/*'http://localhost:8080'*/
 
 export async function login(email, password) {
+
     const response_http = await fetch(
         URL_API + '/api/auth/login',
         {
@@ -45,7 +46,6 @@ export async function login(email, password) {
 
 export async function register(username, password, email) { // funcion asincronica porque va a estar llamando a la funcion fetch, asincronica que devuelve una promesa
     const response_http = await fetch(
-
         //Primer parametro: URL de consulta
 
         URL_API + '/api/auth/register', //(le concatenamos el "end- point ")
