@@ -113,7 +113,7 @@ Validate token → manda solo token (GET, headers)
     return response
 } */
 
-export async function verifyEmail(token) {
+/* export async function verifyEmail(token) {
     const response_http = await fetch(
         import.meta.env.VITE_API_URL + `/api/auth/verify-email?verification_email_token=${token}`,
         {
@@ -131,4 +131,4 @@ export async function verifyEmail(token) {
     }
 
     return response;
-}
+} */

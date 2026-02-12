@@ -8,7 +8,6 @@ import WorkspaceContextProvider from './Context/WorkspaceContext'
 import HomeScreen from './Screens/HomeScreen/HomeScreen'
 import CreateWorkspaceScreen from './Screens/CreateWorkspaceScreen/CreateWorkspaceScreen'
 import ChannelScreen from './Screens/ChannelScreen/ChannelScreen'
-import EmailVerificationScreen from './Screens/EmailVerificationScreen/EmailVerificationScreen'
 function App() {
 
   return (
@@ -17,7 +16,6 @@ function App() {
         <Route path="/" element={<LoginScreen />} />
         <Route path="/register" element={<RegisterScreen />} />
         <Route path="/login" element={<LoginScreen />} />
-        <Route path='/verify-email' element={<EmailVerificationScreen />} />
         <Route element={<AuthMiddleware />}> /*Aca el middleware protege a la ruta de home y solo deja 'pasar' si esta logeado */
           <Route path='/home' element={
             <WorkspaceContextProvider>
