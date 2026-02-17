@@ -6,9 +6,9 @@ import { useContext, useEffect } from "react"
 import { AuthContext } from "../Context/AuthContext"
 function useLogin() { //parte funcional del loginScreen (todo lo que estaba arriba del return), rsponsabilidad 'logica'
     const navigate = useNavigate()
-    const {saveSession, isLogged, session} = useContext(AuthContext) //Traigo el saveSession del AuthContext
+    const { saveSession, isLogged, session } = useContext(AuthContext) //Traigo el saveSession del AuthContext
 
-    console.log({isLogged, session})
+    console.log({ isLogged, session })
 
     const initialLoginForm = {
         email: '',
@@ -33,6 +33,7 @@ function useLogin() { //parte funcional del loginScreen (todo lo que estaba arri
     useEffect(
         () => {
             if (response && response.ok) {
+                localStorage.setItem("username", response.data.username)
                 saveSession(response.data.auth_token) //este es el token que viene de respuesta del backend, lo guardo en la sesion, esta sesion viene del contexto. La funcion saveSession recibe el auth_token, guarda el token en el localStorage y cambia el estado isLogged. 
                 navigate('/home')
             }

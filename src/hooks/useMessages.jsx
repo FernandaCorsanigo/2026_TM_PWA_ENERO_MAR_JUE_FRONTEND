@@ -1,34 +1,40 @@
 import { useEffect } from "react"
 import { createMessage, getMessagesList } from "../services/messageService"
 import useRequest from "./useRequest"
-import { useNavigate } from "react-router"
-useNavigate
 
 function useMessages(workspace_id, channel_id) {
-    const { response, loading, error, sendRequest } = useRequest()
+    // Separate state for fetching messages and sending messages
+    const {
+        response: messagesResponse,
+        loading: messagesLoading,
+        error: messagesError,
+        sendRequest: fetchMessages
+    } = useRequest()
+
+    const {
+        loading: sendingLoading,
+        sendRequest: sendNewMessage
+    } = useRequest()
 
     function loadMessages() {
-        sendRequest(() => getMessagesList(workspace_id, channel_id))
+        fetchMessages(() => getMessagesList(workspace_id, channel_id))
     }
 
     function sendMessage(message_data) {
-        sendRequest(() => createMessage(workspace_id, channel_id, message_data))
+        return sendNewMessage(() => createMessage(workspace_id, channel_id, message_data))
     }
 
     useEffect(() => {
-        loadMessages()
+        if (workspace_id && channel_id) {
+            loadMessages()
+        }
     }, [workspace_id, channel_id])
 
-    useEffect(() => {
-        if (response && response.ok) {
-            navigate(`/workspace/${workspace_id}/channel/${channel_id}/messages`)
-        }
-    }, [response, workspace_id, channel_id])
-
     return {
-        messages: response,
-        loading,
-        error,
+        messages: messagesResponse,
+        loading: messagesLoading,
+        error: messagesError,
+        sending: sendingLoading,
         loadMessages,
         sendMessage
     }

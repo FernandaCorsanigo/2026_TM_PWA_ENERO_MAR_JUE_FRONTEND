@@ -1,10 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router'
-import useForm from '../../hooks/useForm'
-import { register } from '../../services/authService'
-import useRequest from '../../hooks/useRequest'
 import useRegister from '../../hooks/useRegister'
-
+import Spinner from '../../Components/Spinner/Spinner'
+import './RegisterScreen.css'
 
 const RegisterScreen = () => {
     const {
@@ -15,61 +13,71 @@ const RegisterScreen = () => {
         error,
         response
     } = useRegister()
-    console.log(error)
+
     return (
-        <div>
-            <h1>
-                Registrate en la aplicacion
-            </h1>
-            <form onSubmit={onSubmitForm}>
-                <div>
-                    <label htmlFor="username">Nombre de usuario:</label>
-                    <input
-                        type="text"
-                        id="username"
-                        name='username'
-                        value={form_state.username}
-                        onChange={onChangeFieldValue}
-                    />
-                </div>
-                <div>
-                    <label htmlFor="password">Contrasena:</label>
-                    <input
-                        type="password"
-                        id='password'
-                        name='password'
-                        value={form_state.password}
-                        onChange={onChangeFieldValue}
-                    />
-                </div>
-                <div>
-                    <label htmlFor="email">Email:</label>
-                    <input
-                        type="email"
-                        id='email'
-                        name='email'
-                        value={form_state.email}
-                        onChange={onChangeFieldValue}
-                    />
-                </div>
-                {
-                    error && <span style={{ color: 'red' }}>{error.message}</span>
-                }
-                {
-                    response
-                    &&
-                    response.ok
-                    &&
-                    <span style={{ color: 'green' }}>
-                        Usuario registrado exitosamente, te enviaremos un mail con instrucciones
-                    </span>
-                }
-                <br />
-                <button type='submit' disabled={loading}>Registrarse</button>
-                <span>
-                    Ya tienes una cuenta? <Link to='/login'> Iniciar sesion</Link>
-                </span>
-            </form>
+        <div className="register-container">
+            <div className="register-header">
+                <h1>Sign up</h1>
+                <p>We suggest using the email address you use at work.</p>
+            </div>
+
+            <div className="register-form-container">
+                <form onSubmit={onSubmitForm} className="register-form">
+                    <div className="register-input-group">
+                        <label htmlFor="username">Username</label>
+                        <input
+                            type="text"
+                            id="username"
+                            name='username'
+                            placeholder="Your username"
+                            value={form_state.username}
+                            onChange={onChangeFieldValue}
+                        />
+                    </div>
+                    <div className="register-input-group">
+                        <label htmlFor="email">Email</label>
+                        <input
+                            type="email"
+                            id='email'
+                            name='email'
+                            placeholder="name@work-email.com"
+                            value={form_state.email}
+                            onChange={onChangeFieldValue}
+                        />
+                    </div>
+                    <div className="register-input-group">
+                        <label htmlFor="password">Password</label>
+                        <input
+                            type="password"
+                            id='password'
+                            name='password'
+                            placeholder="Your password"
+                            value={form_state.password}
+                            onChange={onChangeFieldValue}
+                        />
+                    </div>
+
+                    {error && <div className="register-error-message">{error.message}</div>}
+
+                    {response && response.ok && (
+                        <div className="register-success-message">
+                            Registration successful! Check your email for instructions.
+                        </div>
+                    )}
+
+                    <button type='submit' className="register-btn" disabled={loading}>
+                        {loading ? 'Registering...' : 'Sign Up'}
+                    </button>
+
+                    {loading && <div style={{ marginTop: '20px' }}> <Spinner /> </div>}
+
+                    <div className="register-footer">
+                        <span>
+                            Already have an account? <Link to='/login'>Sign in</Link>
+                        </span>
+                    </div>
+                </form>
+            </div>
         </div>
     )
 }

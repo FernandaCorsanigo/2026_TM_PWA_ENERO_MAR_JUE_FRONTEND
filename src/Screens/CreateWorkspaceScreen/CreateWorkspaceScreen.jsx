@@ -5,7 +5,7 @@ import useCreateWorkspace from '../../hooks/useCreateWorkspace'
 import './CreateWorkspaceScreen.css'
 
 const CreateWorkspaceScreen = () => {
-    const { createWorkspaceAction, loading, error } = useCreateWorkspace()
+    const { createWorkspaceAction, loading, error, response } = useCreateWorkspace()
 
     const initialValues = {
         title: '',
@@ -91,6 +91,15 @@ const CreateWorkspaceScreen = () => {
                         </button>
                     </div>
                 </form>
+                {response && response.ok && response.data.workspace.channels && (
+                    <div className="workspace-channels" style={{ marginTop: '2rem' }}>
+                        <ul>
+                            {response.data.workspace.channels.map(channel => (
+                                <li key={channel._id}>{channel.name}</li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
             </div>
         </div>
     )

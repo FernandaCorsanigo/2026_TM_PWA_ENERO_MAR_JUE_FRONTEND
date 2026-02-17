@@ -1,4 +1,4 @@
-import { createContext, useEffect } from "react"
+import { createContext, useEffect, useState } from "react"
 import useRequest from "../hooks/useRequest"
 import { getWorkspaceList } from "../services/workspaceService"
 
@@ -23,10 +23,18 @@ const WorkspaceContextProvider = ({ children }) => {
         []
     )
 
+    const [searchTerm, setSearchTerm] = useState("");
+
+    const handleSearchTerm = (e) => {
+        setSearchTerm(e.target.value);
+    }
+
     const provider_values = {
         workspace_list_loading: loading,
         workspace_list: response,
-        workspace_list_error: error
+        workspace_list_error: error,
+        searchTerm,
+        handleSearchTerm
     }
 
     return (

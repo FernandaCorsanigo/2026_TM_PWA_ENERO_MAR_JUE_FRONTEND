@@ -2,7 +2,7 @@ import { ServerError } from "../utils/errorUtils"
 
 const URL_API = import.meta.env.VITE_API_URL
 
-export async function getMessagesList() {
+export async function getMessagesList(workspace_id, channel_id) {
     const response_http = await fetch(
         `${URL_API}/api/workspace/${workspace_id}/channels/${channel_id}/messages`,
         {
@@ -21,7 +21,7 @@ export async function getMessagesList() {
     return response.data
 }
 
-export async function createMessage(message_data) {
+export async function createMessage(workspace_id, channel_id, message_data) {
     const response_http = await fetch(
         `${URL_API}/api/workspace/${workspace_id}/channels/${channel_id}/messages`,
         {

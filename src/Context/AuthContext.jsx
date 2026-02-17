@@ -12,6 +12,7 @@ function AuthContextProvider({ children }) { // creamos un par de estados:
     const auth_token = localStorage.getItem(AUTH_TOKEN_KEY)
     const [isLogged, setIsLogged] = useState(Boolean(auth_token)) // si esta logeado o no
     const [session, setSession] = useState(auth_token ? decodeAuthToken(auth_token) : null) //datos de usuario que van a venir del token
+    const [username, setUsername] = useState(auth_token ? decodeAuthToken(auth_token)?.username : null)
 
     /* 
     Normalmento los back-ends suelen tener un end-point 
@@ -36,12 +37,14 @@ function AuthContextProvider({ children }) { // creamos un par de estados:
         setIsLogged(true)
         const session_decoded = jwtDecode(auth_token)  //npm install jwt-decode     si copio el auth_token y voy a jwt.io va a decodificar el token, dando los datos del usuario
         setSession(session_decoded)
+        setUsername(session_decoded.username)
     }
 
     const providerValues = {
         saveSession,
         session,
-        isLogged
+        isLogged,
+        username
     }
 
     return (

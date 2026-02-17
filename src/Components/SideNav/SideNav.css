@@ -1,0 +1,208 @@
+.nav-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 16px;
+    gap: 16px;
+    width: 50px;
+    height: 100vh;
+    background-color: rgb(247, 245, 242);
+    cursor: default;
+}
+
+/* Imagen de perfil */
+.profile-picture {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Nav comprimido (sidebar pequeño)*/
+.nav-compressed {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    height: 100%;
+    width: 100%;
+    padding-bottom: 15px;
+    background-color: whitesmoke;
+    position: relative;
+    z-index: 2;
+}
+
+.nav-compressed_top,
+.nav-compressed_bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Links dentro del nav comprimido */
+.nav-compressed_top a,
+.nav-compressed_bottom a {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: default;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.nav-compressed_top a:hover,
+.nav-compressed_bottom a:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.nav-compressed_top a svg,
+.nav-compressed_bottom a svg {
+    width: 33px;
+    height: 33px;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+/*Nav simplificado (mobile)*/
+.nav-mobile {
+    display: none;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    height: 70px;
+    padding: 0px 20px 20px;
+    background-color: rgb(247, 245, 242);
+}
+
+.nav-mobile a {
+    font-size: 14px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.nav-mobile a svg {
+    width: 50px;
+    height: 35px;
+    border-radius: 50px;
+    padding: 5px 10px;
+}
+
+.nav-mobile a.active {
+    font-weight: bold;
+}
+
+.nav-mobile a.active svg {
+    fill: #075E54;
+    stroke: #075E54;
+    background-color: #dcf8c6;
+}
+
+/* Nav extendido (sidebar grande)*/
+.nav-extended {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    left: 50px;
+    min-width: 200px;
+    height: 100vh;
+    padding-top: 16px;
+    gap: 16px;
+    background-color: rgb(247, 245, 242);
+    transform: translateX(-200px);
+    z-index: 1;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-extended-open {
+    transform: translateX(0px);
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-extended_top,
+.nav-extended_bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.nav-extended_bottom {
+    padding-bottom: 15px;
+}
+
+.nav-extended a {
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    height: 30px;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 5px;
+}
+
+/* Botones y placeholders */
+.btn-menu-extended {
+    opacity: 0;
+    color: transparent;
+    line-height: 56px;
+}
+
+.picture-placeholder {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    align-items: flex-start;
+}
+
+.icon-placeholder {
+    height: 26px;
+}
+
+.btn-menu {
+    position: relative;
+    z-index: 100;
+    border-radius: 8px;
+}
+
+.btn-menu svg {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+/* Responnsive*/
+@media screen and (max-width: 740px) {
+    .nav-container {
+        flex-direction: row;
+        width: 100%;
+        height: 70px;
+        min-width: 316px;
+    }
+
+    .nav-mobile {
+        display: flex;
+    }
+
+    .nav-extended,
+    .nav-compressed {
+        display: none;
+    }
+
+    .btn-menu {
+        display: none;
+    }
+}
