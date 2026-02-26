@@ -1,6 +1,6 @@
-# 💬 Slack Clone — PWA Frontend
+#  Slack Clone — PWA Frontend
 
-## 📁 Estructura del proyecto
+##  Estructura del proyecto
 
 ```
 src/
@@ -40,7 +40,7 @@ src/
 
 ---
 
-## ⚙️ Instalación y uso
+## Instalación y uso
 
 ### Requisitos previos
 - Node.js v18+
@@ -63,7 +63,7 @@ La app estará disponible en `http://localhost:5173` por defecto.
 
 ---
 
-## 🗺️ Rutas de la aplicación
+##  Rutas de la aplicación
 
 | Ruta | Descripción |
 |---|---|
@@ -76,7 +76,7 @@ La app estará disponible en `http://localhost:5173` por defecto.
 
 ---
 
-## ✨ Funcionalidades principales
+##  Funcionalidades principales
 
 - Autenticación (login y registro)
 - Crear y listar workspaces
