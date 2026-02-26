@@ -76,7 +76,7 @@ function Messages() {
                         className="message-input-field"
                         value={newMessage}
                         onChange={e => setNewMessage(e.target.value)}
-                        placeholder="Escribe tu mensaje..."
+                        placeholder="Write your message..."
                         onKeyDown={handleKeyDown}
                         rows={1}
                     />
