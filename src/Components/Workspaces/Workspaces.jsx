@@ -5,7 +5,7 @@ import Spinner from '../Spinner/Spinner'
 import './Workspaces.css'
 
 const Workspaces = () => {
-    const { workspace_id, email } = useParams()
+    const { workspace_id } = useParams()
     const { workspace_list, workspace_list_loading } = useContext(WorkspaceContext)
     const navigate = useNavigate()
 
@@ -47,7 +47,7 @@ const Workspaces = () => {
                             <div className='workspace-card-content'>
                                 <div className='workspace-card-content-left'>
                                     <div>
-                                        <span className="workspace-email-label">Espacios de trabajo para {email}</span>
+                                        <span className="workspace-email-label">Your workspace:</span>
                                     </div>
 
                                     <div className="workspace-card-info">
