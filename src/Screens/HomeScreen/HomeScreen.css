@@ -1,85 +1,74 @@
-.home-container {
+.home-screen-container {
     display: flex;
+    flex-direction: column;
     height: 100vh;
     width: 100vw;
-    overflow: hidden;
-    background-color: #1a1d21;
-    /* Slack dark theme background */
-    color: white;
-    font-family: 'Lato', sans-serif;
-}
-
-.workspace-sidebar {
-    width: 260px;
-    background-color: #3f0e40;
-    /* Slack sidebar color */
-    display: flex;
-    flex-direction: column;
-    border-right: 1px solid #522653;
-}
-
-.workspace-header {
-    padding: 16px;
-    border-bottom: 1px solid #522653;
-    font-weight: bold;
-    font-size: 1.2rem;
-    color: white;
-}
-
-.channels-list {
-    flex: 1;
     overflow-y: auto;
-    padding: 0;
+    background-color: rgb(73, 24, 74);
 }
 
-.main-content {
-    flex: 1;
+.home-topbar {
+    height: 70px;
     display: flex;
     flex-direction: column;
-    background-color: #ffffff;
-    color: #1d1c1d;
-    height: 100%;
-}
-
-.no-workspace-selected {
-    display: flex;
-    justify-content: center;
     align-items: center;
-    height: 100%;
-    color: #ccc;
+    padding: 0 40px;
 }
 
-/* Channel Item Styles */
-.channel-item {
-    padding: 8px 16px;
-    cursor: pointer;
-    color: rgb(168, 164, 168);
-    transition: background-color 0.2s;
+.home-logo {
+    padding: 48px 40px 0px;
+    text-align: center;
 }
 
-.channel-item:hover {
-    background-color: #350d36;
+.home-logo img {
+    width: 150px;
 }
 
-.channel-item.active {
-    background-color: #1164A3;
-    color: white;
+.home-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 40px;
 }
 
-/* Scrollbar styling for sidebar */
-.workspace-sidebar ::-webkit-scrollbar {
-    width: 8px;
+.workspaces-panel-card {
+    background-color: white;
+    width: 100%;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    display: flex;
+    flex-direction: column;
 }
 
-.workspace-sidebar ::-webkit-scrollbar-track {
-    background: #3f0e40;
-}
+@media (max-width: 600px) {
+    .home-screen-container {
+        overflow-y: auto;
+    }
 
-.workspace-sidebar ::-webkit-scrollbar-thumb {
-    background: #522653;
-    border-radius: 4px;
-}
+    .home-topbar {
+        padding: 0 16px;
+        height: 56px;
+    }
 
-.workspace-sidebar ::-webkit-scrollbar-thumb:hover {
-    background: #6e3870;
+    .home-logo {
+        padding: 32px 16px 0;
+    }
+
+    .home-logo img {
+        width: 120px;
+    }
+
+    .home-content {
+        padding: 24px 0 0;
+        align-items: flex-start;
+    }
+
+    .workspaces-panel-card {
+        max-width: 100%;
+        border-radius: 0;
+        box-shadow: none;
+    }
 }

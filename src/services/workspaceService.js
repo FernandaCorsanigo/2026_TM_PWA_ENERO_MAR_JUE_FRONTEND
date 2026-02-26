@@ -14,7 +14,7 @@ export async function getWorkspaceList() {
         }
     )
 
-    const response = await response_http.json() // Funcion asincronica por eso el await
+    const response = await response_http.json()
     if (!response.ok) {
         throw new ServerError(response.message, response.status)
     }

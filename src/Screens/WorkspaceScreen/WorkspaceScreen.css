@@ -1,0 +1,268 @@
+.general-screen-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background-color: rgb(80, 42, 82);
+    /* Slack dark theme background */
+    color: white;
+    font-family: 'Lato', sans-serif;
+}
+
+.workspace-topbar {
+    height: 44px;
+    width: 100%;
+    background-color: #350D36;
+    /* Slack dark header */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
+    z-index: 10;
+    flex-shrink: 0;
+}
+
+.workspace-layout {
+    display: flex;
+    flex: 1;
+    width: 100vw;
+    overflow: hidden;
+    background-color: rgb(80, 42, 82);
+}
+
+.workspace-sidenav {
+    width: 65px;
+    min-width: 65px;
+    background-color: #350D36;
+    /* Match top bar */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+
+.workspace-panel {
+    width: 260px;
+    background-color: rgb(80, 42, 82);
+    /* Slack sidebar color */
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #522653;
+    color: #d6c6db;
+}
+
+.channels-panel {
+    width: 260px;
+    min-width: 260px;
+    background-color: rgb(80, 42, 82);
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+
+
+
+.workspace-header {
+    padding: 16px;
+    border-bottom: 1px solid rgb(80, 42, 82);
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: white;
+}
+
+.channels-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    color: #1d1c1d;
+    height: 100%;
+}
+
+.no-workspace-selected {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: #ccc;
+}
+
+/* Channel Item Styles */
+.channel-item {
+    padding: 8px 16px;
+    cursor: pointer;
+    color: rgb(168, 164, 168);
+    transition: background-color 0.2s;
+}
+
+.channel-item:hover {
+    background-color: rgba(57, 6, 58, 0.08);
+}
+
+.channel-item.active {
+    background-color: #1164A3;
+    color: white;
+}
+
+/* Scrollbar styling for sidebar */
+.workspace-sidebar ::-webkit-scrollbar {
+    width: 8px;
+}
+
+.workspace-sidebar ::-webkit-scrollbar-track {
+    background: #3f0e40;
+}
+
+.workspace-sidebar ::-webkit-scrollbar-thumb {
+    background: #522653;
+    border-radius: 4px;
+}
+
+.workspace-sidebar ::-webkit-scrollbar-thumb:hover {
+    background: #6e3870;
+}
+
+.messages-panel {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    height: 100%;
+}
+
+.mobile-bottom-nav {
+    display: none;
+}
+
+@media (max-width: 768px) {
+
+    .general-screen-container {
+        height: 100dvh;
+        overflow: hidden;
+    }
+
+    .workspace-topbar {
+        padding: 0 10px;
+        height: 48px;
+    }
+
+
+    .workspace-layout {
+        flex-direction: row;
+        flex: 1;
+        overflow: hidden;
+        height: calc(100dvh - 48px - 56px);
+    }
+
+    .workspace-sidenav {
+        display: none;
+    }
+
+    .channels-panel {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        flex: 1;
+        border-right: none;
+        transition: transform 0.25s ease;
+    }
+
+    .workspace-layout.in-messages .channels-panel {
+        display: none;
+    }
+
+    .messages-panel {
+        width: 100%;
+        min-width: 0;
+        flex: 1;
+        display: none;
+    }
+
+    .workspace-layout.in-messages .messages-panel {
+        display: flex;
+    }
+
+
+    .mobile-bottom-nav {
+        display: flex;
+        height: 56px;
+        background-color: #350D36;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        flex-shrink: 0;
+    }
+
+    .mobile-bottom-nav .nav-container {
+        flex-direction: row;
+        height: 56px;
+        width: 100%;
+    }
+
+    .mobile-bottom-nav .nav-compressed {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        padding: 0 8px;
+    }
+
+    .mobile-bottom-nav .nav-compressed_top {
+        flex-direction: row;
+        gap: 0;
+        width: auto;
+        align-items: center;
+        justify-content: space-around;
+        flex: 1;
+    }
+
+    .mobile-bottom-nav .nav-compressed_bottom {
+        flex-direction: row;
+        gap: 8px;
+        width: auto;
+        align-items: center;
+    }
+
+    .mobile-bottom-nav .nav-item {
+        flex-direction: column;
+        gap: 2px;
+        padding: 0 10px;
+        width: auto;
+        color: rgba(255, 255, 255, 0.75);
+    }
+
+    .mobile-bottom-nav .nav-item:hover {
+        color: white;
+    }
+
+    .mobile-bottom-nav .nav-label {
+        font-size: 9px;
+    }
+
+    .mobile-bottom-nav .workspace-switcher-btn {
+        width: 32px;
+        height: 32px;
+        margin-bottom: 0;
+        font-size: 13px;
+    }
+
+    .mobile-bottom-nav .profile-picture-container {
+        width: 30px;
+        height: 30px;
+        margin-top: 0;
+    }
+
+    .workspace-layout>.workspace-sidenav {
+        display: none;
+    }
+}

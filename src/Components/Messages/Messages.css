@@ -1,0 +1,213 @@
+.message-screen {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    /* Slack messages background */
+}
+
+.loading-text {
+    padding: 10px 20px;
+    color: #616061;
+}
+
+.message-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.message-list-spacer {
+    flex: 1;
+}
+
+.message-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 8px 20px;
+}
+
+.message-item:hover {
+    background-color: #f8f8f8;
+}
+
+.message-avatar {
+    width: 36px;
+    height: 36px;
+    background-color: #e8c6c8;
+    color: #502a52;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.message-body {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.message-header-info {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.message-sender {
+    font-weight: 900;
+    color: #1d1c1d;
+    font-size: 15px;
+}
+
+.message-time {
+    font-size: 12px;
+    color: #616061;
+}
+
+.message-content {
+    color: #1d1c1d;
+    word-break: break-word;
+    font-size: 15px;
+}
+
+/* Input Styles */
+.message-input-wrapper {
+    padding: 0 20px 20px;
+    background-color: white;
+    flex-shrink: 0;
+}
+
+.message-input-container {
+    border: 1px solid #868686;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    overflow: hidden;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.message-input-container:focus-within {
+    border-color: #1164A3;
+    box-shadow: 0 0 0 1px #1164A3;
+}
+
+.message-input-toolbar {
+    display: flex;
+    align-items: center;
+    background-color: #f8f8f8;
+    padding: 6px;
+    gap: 2px;
+}
+
+.toolbar-btn {
+    background: none;
+    border: none;
+    border-radius: 4px;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #616061;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.toolbar-btn:hover {
+    background-color: #e8e8e8;
+    color: #1d1c1d;
+}
+
+.toolbar-divider {
+    width: 1px;
+    height: 16px;
+    background-color: #d1d1d1;
+    margin: 0 4px;
+}
+
+.message-input-field {
+    border: none;
+    resize: none;
+    padding: 10px 14px;
+    font-family: inherit;
+    font-size: 15px;
+    color: #1d1c1d;
+    outline: none;
+    background: transparent;
+    max-height: 200px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.message-input-bottom-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px;
+    background-color: white;
+}
+
+.bottom-toolbar-left {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.plus-btn {
+    background-color: #616061;
+    color: white;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    margin-right: 4px;
+}
+
+.plus-btn:hover {
+    background-color: #4b4b4b;
+    color: white;
+}
+
+.send-btn {
+    background-color: transparent;
+    color: #d1d1d1;
+    border-radius: 4px;
+}
+
+.send-btn.active {
+    background-color: #007a5a;
+    color: white;
+}
+
+.send-btn.active:hover {
+    background-color: #148567;
+}
+
+@media (max-width: 480px) {
+    .message-item {
+        padding: 6px 12px;
+        gap: 8px;
+    }
+
+    .message-input-wrapper {
+        padding: 0 10px 12px;
+    }
+
+    .message-input-toolbar {
+        flex-wrap: wrap;
+    }
+
+    .message-avatar {
+        width: 30px;
+        height: 30px;
+        font-size: 13px;
+    }
+}

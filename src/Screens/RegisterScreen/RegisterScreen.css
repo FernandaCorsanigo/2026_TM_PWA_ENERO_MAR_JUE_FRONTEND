@@ -9,6 +9,15 @@
     color: #1d1c1d;
 }
 
+.register-logo {
+    padding: 48px 40px 0px;
+    text-align: center;
+}
+
+.register-logo img {
+    width: 150px;
+}
+
 .register-header {
     margin-bottom: 40px;
     text-align: center;
@@ -113,4 +122,30 @@
     border-radius: 4px;
     text-align: center;
     font-weight: 600;
+}
+
+@media (max-width: 480px) {
+    .register-logo {
+        padding: 24px 20px 0;
+    }
+
+    .register-logo img {
+        width: 120px;
+    }
+
+    .register-header h1 {
+        font-size: 30px;
+    }
+
+    .register-form-container {
+        padding: 0 16px;
+    }
+
+    .register-input-group input {
+        font-size: 16px;
+    }
+
+    .register-btn {
+        font-size: 16px;
+    }
 }

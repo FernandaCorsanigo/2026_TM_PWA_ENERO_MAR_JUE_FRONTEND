@@ -29,12 +29,17 @@ const WorkspaceContextProvider = ({ children }) => {
         setSearchTerm(e.target.value);
     }
 
+    const reloadWorkspaces = () => {
+        sendRequest(getWorkspaceList)
+    }
+
     const provider_values = {
         workspace_list_loading: loading,
         workspace_list: response,
         workspace_list_error: error,
         searchTerm,
-        handleSearchTerm
+        handleSearchTerm,
+        reloadWorkspaces
     }
 
     return (

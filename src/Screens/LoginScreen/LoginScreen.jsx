@@ -15,6 +15,9 @@ const LoginScreen = () => {
 
     return (
         <div className="login-container">
+            <div className="login-logo">
+                <img src="/Images/Slack-logo.png" alt="Logo" />
+            </div>
             <div className="login-header">
                 <h1>Sign in</h1>
                 <p>Welcome back! Please enter your details.</p>

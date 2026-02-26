@@ -3,11 +3,20 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
+    height: 100vh;
+    width: 100vw;
     background-color: #fff;
     font-family: 'Lato', sans-serif;
-    /* or system fonts */
     color: #1d1c1d;
+}
+
+.login-logo {
+    padding: 48px 40px 0px;
+    text-align: center;
+}
+
+.login-logo img {
+    width: 150px;
 }
 
 .login-header {
@@ -121,4 +130,34 @@
     border-radius: 4px;
     text-align: center;
     font-weight: 600;
+}
+
+@media (max-width: 480px) {
+    .login-logo {
+        padding: 24px 20px 0;
+    }
+
+    .login-logo img {
+        width: 120px;
+    }
+
+    .login-header h1 {
+        font-size: 30px;
+    }
+
+    .login-header p {
+        font-size: 16px;
+    }
+
+    .login-form-container {
+        padding: 0 16px;
+    }
+
+    .input-group input {
+        font-size: 16px;
+    }
+
+    .login-btn {
+        font-size: 16px;
+    }
 }

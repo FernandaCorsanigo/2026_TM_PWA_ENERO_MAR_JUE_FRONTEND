@@ -5,23 +5,17 @@
     height: 100%;
     width: 100%;
     min-height: 200px;
-    /* Ensure visibility if container is empty */
 }
 
-/* Spinner styling based on Slack's loading indicator (often simple, clean) */
 .spinner {
     border: 4px solid rgba(0, 0, 0, 0.1);
     width: 36px;
     height: 36px;
     border-radius: 50%;
     border-left-color: #36c5f0;
-    /* Slack Blue or similar brand color */
     border-top-color: #2eb67d;
-    /* Slack Green */
     border-right-color: #e01e5a;
-    /* Slack Red */
     border-bottom-color: #ecb22e;
-    /* Slack Yellow */
     animation: spin 1s linear infinite;
 }
 

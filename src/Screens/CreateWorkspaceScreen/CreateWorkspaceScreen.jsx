@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router' // Note: 'react-router' as per user constraint, usually 'react-router-dom' but user said 'react-router'
+import { Link } from 'react-router'
 import useForm from '../../hooks/useForm'
 import useCreateWorkspace from '../../hooks/useCreateWorkspace'
 import './CreateWorkspaceScreen.css'

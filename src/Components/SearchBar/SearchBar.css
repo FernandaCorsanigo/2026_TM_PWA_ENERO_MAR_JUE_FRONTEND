@@ -2,62 +2,44 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    padding: 10px 0;
-    /* Slack's top bar color is usually part of the sidebar or separate header. 
-       Assuming this sits in a dark sidebar or a light header. 
-       We'll make it adaptable but default to a light transparent look if on dark, 
-       or a gray input on light. */
 }
 
-/* Container mimicking Slack's search button/input */
 .search-bar-container {
     display: flex;
     align-items: center;
-    width: 90%;
-    max-width: 600px;
-    height: 28px;
+    width: 100%;
+    max-width: 500px;
+    height: 26px;
     background-color: rgba(255, 255, 255, 0.2);
-    /* Transparent white for dark backgrounds */
+
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 6px;
     padding: 0 10px;
     color: white;
     transition: all 0.2s ease;
-}
-
-/* If the parent background is light, we might need a different style. 
-   But usually Slack's new design has a dark sidebar or a specific header. 
-   Let's assume a generic "modern" gray if not on dark purple. */
-/* For this implementation, I will assume a standard light theme for the main content 
-   or a dark sidebar. Let's start with a neutral look that works on both or 
-   mimics the top header bar. */
-
-.search-bar-container {
-    background-color: #3f0e40;
-    /* Fallback/Base Slack Purple */
-    background-color: rgba(0, 0, 0, 0.1);
-    /* Light gray on light bg */
-    border: 1px solid #ccc;
-    color: #333;
+    cursor: text;
 }
 
 .search-bar-container:hover {
-    background-color: rgba(0, 0, 0, 0.15);
-    border-color: #aaa;
+    background-color: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.4);
 }
 
 .search-bar-container:focus-within {
     background-color: #fff;
     border-color: #1264a3;
-    /* Slack focus blue */
     box-shadow: 0 0 0 1px #1264a3;
     color: #1d1c1d;
 }
 
 .search-icon {
     font-size: 14px;
-    color: #616061;
+    color: rgba(255, 255, 255, 0.8);
     margin-right: 8px;
+}
+
+.search-bar-container:focus-within .search-icon {
+    color: #1d1c1d;
 }
 
 .search-bar {
@@ -71,5 +53,9 @@
 }
 
 .search-bar::placeholder {
-    color: #9e9ea0;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.search-bar-container:focus-within .search-bar::placeholder {
+    color: #616061;
 }

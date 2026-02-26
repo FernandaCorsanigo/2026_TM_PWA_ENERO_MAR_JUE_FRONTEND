@@ -16,8 +16,11 @@ const RegisterScreen = () => {
 
     return (
         <div className="register-container">
+            <div className="register-logo">
+                <img src="/Images/Slack-logo.png" alt="Logo" />
+            </div>
             <div className="register-header">
-                <h1>Sign up</h1>
+                <h1>First, enter your email</h1>
                 <p>We suggest using the email address you use at work.</p>
             </div>
 
@@ -73,7 +76,7 @@ const RegisterScreen = () => {
 
                     <div className="register-footer">
                         <span>
-                            Already have an account? <Link to='/login'>Sign in</Link>
+                            Already using Slack? <Link to='/login'>Sign in</Link>
                         </span>
                     </div>
                 </form>

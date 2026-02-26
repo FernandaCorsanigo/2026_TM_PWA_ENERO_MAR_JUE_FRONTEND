@@ -6,25 +6,29 @@ function useChannel(workspace_id) {
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
 
-    useEffect(() => {
-        if (!workspace_id) return // si no hay workspace_id, no hacemos nada
-
-        const fetchChannels = async () => {
-            try {
-                setLoading(true)
-                const data = await getChannelsList(workspace_id)
-                setChannels(data)
-            } catch (err) {
-                setError(err)
-            } finally {
-                setLoading(false)
-            }
+    const fetchChannels = async () => {
+        if (!workspace_id) return
+        try {
+            setLoading(true)
+            const data = await getChannelsList(workspace_id)
+            setChannels(data)
+        } catch (err) {
+            setError(err)
+        } finally {
+            setLoading(false)
         }
+    }
 
+    useEffect(() => {
         fetchChannels()
     }, [workspace_id])
 
-    return { channels, loading, error }
+    return {
+        channels,
+        loading,
+        error,
+        reloadChannels: fetchChannels
+    }
 }
 
 export default useChannel

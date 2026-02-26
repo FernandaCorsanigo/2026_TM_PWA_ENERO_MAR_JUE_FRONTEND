@@ -1,0 +1,113 @@
+.channel-screen-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    color: #d6c6db;
+}
+
+.workspace-header-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 48px;
+    padding: 0 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: background-color 0.2s;
+    flex-shrink: 0;
+}
+
+.workspace-header-button:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.workspace-name-text {
+    font-weight: 900;
+    font-size: 18px;
+    color: white;
+}
+
+.workspace-dropdown-icon {
+    font-size: 14px;
+    color: white;
+}
+
+.channels-list-scroll {
+    flex: 1;
+    overflow-y: auto;
+    padding-top: 12px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+    height: 28px;
+}
+
+.section-header-title {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    font-size: 15px;
+    color: #d6c6db;
+    opacity: 0.9;
+}
+
+.section-header-title:hover {
+    opacity: 1;
+}
+
+.collapse-icon {
+    font-size: 14px;
+}
+
+.add-btn {
+    background: transparent;
+    border: none;
+    color: #d6c6db;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.add-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    opacity: 1;
+}
+
+.channel-item {
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    height: 28px;
+    cursor: pointer;
+    color: #d6c6db;
+    font-size: 15px;
+    margin: 1px 0;
+}
+
+.channel-item:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.hash-icon {
+    opacity: 0.7;
+    margin-right: 6px;
+    font-size: 15px;
+}
+
+.channel-name-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

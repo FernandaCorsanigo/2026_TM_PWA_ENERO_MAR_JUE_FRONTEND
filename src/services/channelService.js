@@ -39,5 +39,5 @@ export async function createChannel(workspace_id, channel_data) {
     if (!response.ok) {
         throw new ServerError(response.message, response.status)
     }
-    return response.data.channels
+    return response.data.channel_created
 }

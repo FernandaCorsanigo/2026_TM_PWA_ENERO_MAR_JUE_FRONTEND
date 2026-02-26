@@ -1,16 +1,87 @@
-# React + Vite
+# 💬 Slack Clone — PWA Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📁 Estructura del proyecto
 
-Currently, two official plugins are available:
+```
+src/
+├── App.jsx                  # Rutas principales de la app
+├── main.jsx                 # Punto de entrada
+├── Global.css               # Estilos globales
+│
+├── Screens/                 # Pantallas principales
+│   ├── LoginScreen/         # Inicio de sesión
+│   ├── RegisterScreen/      # Registro de usuario
+│   ├── HomeScreen/          # Listado de workspaces
+│   ├── WorkspaceScreen/     # Vista de canales del workspace
+│   └── CreateWorkspaceScreen/
+│
+├── Components/              # Componentes reutilizables
+│   ├── Workspaces/          # Listado y cards de workspaces
+│   ├── Messages/            # Pantalla de mensajes
+│   ├── Channels/            # Lista de canales
+│   └── ...
+│
+├── Context/                 # Proveedores de contexto global
+│   ├── AuthContext.jsx
+│   ├── WorkspaceContext.jsx
+│   ├── ChannelContext.jsx
+│   └── MessageContext.jsx
+│
+├── hooks/                   # Custom hooks (lógica de negocio)
+│   ├── useLogin.jsx
+│   ├── useCreateWorkspace.jsx
+│   ├── useCreateChannel.jsx
+│   └── ...
+│
+├── services/                # Llamadas a la API REST
+├── Middlewares/             # Protección de rutas (AuthMiddleware)
+└── utils/                   # Utilidades generales
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## ⚙️ Instalación y uso
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Requisitos previos
+- Node.js v18+
+- npm o yarn
 
-## Expanding the ESLint configuration
+### Pasos
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+# 1. Instalar dependencias
+npm install
+
+# 2. Iniciar el servidor de desarrollo
+npm run dev
+
+# 3. Build para producción
+npm run build
+```
+
+La app estará disponible en `http://localhost:5173` por defecto.
+
+---
+
+## 🗺️ Rutas de la aplicación
+
+| Ruta | Descripción |
+|---|---|
+| `/` o `/login` | Pantalla de inicio de sesión |
+| `/register` | Pantalla de registro |
+| `/home` | Listado de workspaces del usuario |
+| `/create-workspace` | Crear un nuevo workspace |
+| `/:workspace_id/channels` | Vista de canales del workspace |
+| `/:workspace_id/channels/:channel_id/messages` | Vista de mensajes del canal |
+
+---
+
+## ✨ Funcionalidades principales
+
+- Autenticación (login y registro)
+- Crear y listar workspaces
+- Crear y listar canales dentro de un workspace
+- Enviar y recibir mensajes en tiempo real
+- Diseño responsive (mobile-first)
+- Rutas protegidas por autenticación
+
